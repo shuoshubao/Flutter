@@ -68,9 +68,11 @@ class MyHomePage extends StatelessWidget {
             child: Text('增加一条'),
           ),
           ElevatedButton(
-            onPressed: () {
-              appState.handleRemoveItem();
-            },
+            onPressed: appState.list.length == 1
+                ? null
+                : () {
+                    appState.handleRemoveItem();
+                  },
             child: Text('删除一条'),
           ),
         ],
