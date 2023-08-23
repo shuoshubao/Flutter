@@ -50,19 +50,14 @@ class MyHomePage extends StatelessWidget {
 
     return Scaffold(
         body: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: appState.list.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(appState.list[index]),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: appState.list
+                .map((value) => Text(
+                      value,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(color: Colors.cyan, fontSize: 20),
+                    ))
+                .toList()),
         floatingActionButton: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
           FloatingActionButton(
             onPressed: appState.list.length == 1
