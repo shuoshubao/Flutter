@@ -51,13 +51,23 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
         body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: appState.list
-                .map((value) => Text(
-                      value,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(color: Colors.cyan, fontSize: 20),
-                    ))
-                .toList()),
+            children: List.generate(appState.list.length, (i) => i).map((i) {
+              var value = appState.list[i];
+              return Row(children: [
+                Text(
+                  (i).toString(),
+                  style: TextStyle(color: Colors.cyan, fontSize: 16),
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  value,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(color: Colors.purple, fontSize: 20, fontWeight: FontWeight.bold),
+                )
+              ]);
+            }).toList()),
         floatingActionButton: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
           FloatingActionButton(
             onPressed: appState.list.length == 1
