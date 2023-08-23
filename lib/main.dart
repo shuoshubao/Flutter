@@ -49,34 +49,40 @@ class MyHomePage extends StatelessWidget {
     print(appState.list);
 
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: appState.list.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(appState.list[index]),
-                );
-              },
+        body: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: appState.list.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(appState.list[index]),
+                  );
+                },
+              ),
             ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              appState.handleAddItem();
-            },
-            child: Text('增加一条'),
-          ),
-          ElevatedButton(
+          ],
+        ),
+        floatingActionButton: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+          FloatingActionButton(
             onPressed: appState.list.length == 1
                 ? null
                 : () {
                     appState.handleRemoveItem();
                   },
-            child: Text('删除一条'),
+            tooltip: 'Decrease Counter',
+            child: Icon(Icons.remove),
           ),
-        ],
-      ),
-    );
+          SizedBox(
+            height: 12,
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              appState.handleAddItem();
+            },
+            child: Icon(Icons.add),
+            tooltip: 'Increment Counter',
+          ),
+        ]));
   }
 }
