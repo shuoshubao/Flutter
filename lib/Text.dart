@@ -41,6 +41,8 @@ class MyHomePage extends StatelessWidget {
           style: TextStyle(decoration: TextDecoration.overline),
         ),
         SizedBox(height: 24),
+        SelectableText('我是可以被复制的'),
+        SizedBox(height: 24),
         Text.rich(TextSpan(text: '富文本 Text.rich(TextSpan)', children: [
           TextSpan(text: '富文本 cyan', style: TextStyle(color: Colors.cyan, fontSize: 22)),
           TextSpan(text: '富文本 deepPurple', style: TextStyle(color: Colors.deepPurple, fontSize: 18)),
