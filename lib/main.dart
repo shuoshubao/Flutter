@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Text',
         theme: ThemeData(useMaterial3: true),
-        home: MyHomePage(),
+        home: OKToast(child: MyHomePage()),
       ),
     );
   }
@@ -37,13 +38,17 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(title: Text('TextField')),
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: <Widget>[
-          TextField(
-            autofocus: true,
-            decoration: InputDecoration(labelText: "用户名", hintText: "用户名或邮箱", prefixIcon: Icon(Icons.person, color: Colors.pink)),
+          ElevatedButton(
+            onPressed: () {
+              showToast('普通文本', radius: 20.0);
+            },
+            child: Text('普通文本'),
           ),
-          TextField(
-            obscureText: true,
-            decoration: InputDecoration(labelText: "密码", hintText: "您的登录密码", prefixIcon: Icon(Icons.lock)),
+          ElevatedButton(
+            onPressed: () {
+              showToastWidget(Text('富文本123'));
+            },
+            child: Text('富文本'),
           ),
         ]));
   }
