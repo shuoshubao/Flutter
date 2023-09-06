@@ -63,7 +63,7 @@ class MyHomePage extends StatelessWidget {
             Container(
               color: Colors.cyan,
               padding: EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-              child: Text('text6', style: TextStyle(fontSize: 20)),
+              child: Text('text6', style: TextStyle(fontSize: 20, color: Colors.white)),
             ),
           ]),
         )
