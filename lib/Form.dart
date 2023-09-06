@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'Text',
+        title: 'Form',
         theme: ThemeData(useMaterial3: true),
         home: MyHomePage(),
       ),

@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'Text',
+        title: 'Checkbox Radio Switch Slider',
         theme: ThemeData(useMaterial3: true),
         home: MyHomePage(),
       ),

@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'Text',
+        title: 'OkToast',
         theme: ThemeData(useMaterial3: true),
         home: MyHomePage(),
       ),
@@ -36,7 +36,7 @@ class MyHomePage extends StatelessWidget {
     var appState = context.watch<MyAppState>();
 
     return Scaffold(
-        appBar: AppBar(title: Text('TextField')),
+        appBar: AppBar(title: Text('OkToast')),
         body: OKToast(
             dismissOtherOnShow: true,
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: <Widget>[
@@ -72,7 +72,7 @@ class MyHomePage extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  showToastWidget(Text('showToastWidget', style: TextStyle(color: Colors.cyan, fontSize: 20)), position: ToastPosition.top);
+                  showToastWidget(Text('showToastWidget', style: TextStyle(color: Colors.cyan, fontSize: 20, backgroundColor: Colors.black.withAlpha(80))), position: ToastPosition.top);
                 },
                 child: Text('showToastWidget'),
               ),
