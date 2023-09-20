@@ -64,6 +64,7 @@ class MyHomePage extends StatelessWidget {
               final response = await dio.get(url);
               final res = jsonDecode(response.data);
               appState.handleUpdateMdData(res);
+              appState.handleUpdateSelectedKey(res.keys.toList()[0]);
             },
             child: const Text('请求数据')),
         const SizedBox(
@@ -94,7 +95,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                       child: Text(text));
                 })),
-        Text('文章列表:'),
+        Text(['文章列表', appState.selectedKey].join(': ')),
         Container(
           child: ListView.builder(
               itemCount: selectList.length,
